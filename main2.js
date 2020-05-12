@@ -1,46 +1,68 @@
 // exchange rate
-const exchangeRate = 223161.39;
-let moneyCurrency = prompt("VND or USD?")
-let amount = prompt("How much do you have?")
+const exchangeRateUsd = 223161;
+const exchangeRateGp= 28819.18;
+let from = prompt ('Which currency you have?')
+let to = prompt ('Which currency you want?')
+let amount = prompt ('How much you want to convert')
+let result = 0;
+let formatedAmount = ' '
+
 
 
 //VND to USD
-function vndToUsd(amount) {
-    return convertedAmount = (amount/ exchangeRate).toFixed(2)
+function vndToUsd() {
+    return amount/ exchangeRateUsd.toFixed(2)
     
 }
 
 //USD to VND
-function usdToVnd(amount){
-    return convertedAmound = (amount* exchangeRate).toFixed(2)
+function usdToVnd(){
+   return amount* exchangeRateUsd.toFixed(2)
 
 }
 
-if (moneyCurrency.toUpperCase() === 'VND' ){
-   result = vndToUsd(amount)
-   alert(result)
+//VND to Gp
+//function vndToGp(){
+//  return amount/ exchangeRateGp.toFixed(2)
+//}
 
-} else if (moneyCurrency.toUpperCase() === 'USD'){
-   result =  usdToVnd(amount)
-   alert(result)
-   
-
-}
-
-function validate(moneyCurreny, amount){
-    if (moneyCurrency === "VND "){
-        alert(amount + " " + moneyCurrency + " to ")
-    }
-
-}
+//GP to VND
+//function GpToVnd(){
+ // return amount/ exchangeRateGp.toFixed(2)
+//}
 
 
-
-//Milestone 7
 function formatCurrency(type, value) {
-    const formatter = new Intl.NumberFormat(type, {
-      currency: type,
-      style: "currency"
-    });
-    return formatter.format(value);
+  const formatter = new Intl.NumberFormat(type, {
+    currency: type,
+    style: "currency"
+  });
+  return formatter.format(value);
+}
+
+function convert (){
+  from = from.toUpperCase();
+  to = to.toUpperCase();
+
+  if (from === 'VND' && to === 'USD'){
+    result = vndToUsd()
+    formatedAmount = formatCurrency(to,result)
+    
+  } else if (from === 'USD' && to === 'VND'){
+    result = usdToVnd()
+    formatedAmount = formatCurrency(to,result)
+  
+
+  } else {
+    alert('Wrong currency')
+    return; 
   }
+    alert('You have:' + formatedAmount);
+}
+
+convert()
+
+
+
+
+
