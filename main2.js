@@ -1,49 +1,40 @@
 // exchange rate
-const exchangeRateUsd = 22316.5;
-// const exchangeRateGp= 28819.18;
+const exchangeRate = 23333.5;
 let from = document.getElementById('fromList')
 let to = document.getElementById('toList')
 let convertButton = document.getElementById('convertButton');
 let amount = document.getElementById('amountInput')
-let result = document.getElementById('resultArea');
+let result = document.getElementById('resultText');
 let convertedAmount = 0;
 let formatedAmount = ' '
+let rateA = 0;
+let rateB = 0;
 
-
-
+//const ratePerUSD = {
+ // "USD": 1,
+ // "VND": 23333.5,
+ // "GBP": 0.80870,
+ // "KRW": 1224.11
+//}
 
 
 convertButton.addEventListener("click",convert);
 
+// VND to USD
 
-
-//VND to USD
 function vndToUsd() {
-    return amount.value/ exchangeRateUsd.toFixed(2)
-    
-    
+  return amount.value/ exchangeRate.toFixed(2)
+  //console.log("your money in USD is ", convertedAmount);
 }
-
 
 //USD to VND
-function usdToVnd(){
-   return amount.value* exchangeRateUsd.toFixed(2)
 
+function usdToVnd(){
+  return amount.value* exchangeRate.toFixed(2)
+  //console.log("your money in VND is", convertedAmount);
 }
 
-//VND to Gp
-//function vndToGp(){
-//  return amount/ exchangeRateGp.toFixed(2)
-//}
-
-//GP to VND
-//function GpToVnd(){
- // return amount/ exchangeRateGp.toFixed(2)
-//}
-
-
-
-
+// formatting currency
 
 function formatCurrency(type, value) {
   const formatter = new Intl.NumberFormat(type, {
@@ -53,27 +44,37 @@ function formatCurrency(type, value) {
   return formatter.format(value);
 }
 
+
 function convert (){
- // from = from.toUpperCase();
- // to = to.toUpperCase();
-
-  if (from.value === 'VND' && to.value === 'USD'){
-    convertedAmount = vndToUsd()
-    formatedAmount = formatCurrency(to.value,convertedAmount)
-    
-  } else if (from.value === 'USD' && to.value === 'VND'){
-    convertedAmount = usdToVnd()
-    formatedAmount = formatCurrency(to.value,convertedAmount)
   
+ 
+   if (from.value === 'VND' && to.value === 'USD'){
+     convertedAmount = vndToUsd()
+     formatedAmount = formatCurrency(to.value,convertedAmount)
+     
+   } else if (from.value === 'USD' && to.value === 'VND'){
+     convertedAmount = usdToVnd()
+     formatedAmount = formatCurrency(to.value,convertedAmount)
+   
+   } else {
+     result.innerHTML = `Choose different converting currency`
+     return; 
+   }
+   result.innerHTML = `You have ${formatedAmount}`
+ }
+ 
 
-  } else {
-    alert('Wrong currency')
-    return; 
-  }
-  result.innerHTML = `You have ${formatedAmount}`
-}
+ //function getRatePerUSD() {
+ // for (let [key, value] of Object.entries(ratePerUSD)) {
+ //     console.log(key, value)
+ //     if (from === key) {rateA = value;}
+ //     if (to === key) {rateB = value;}
+  
+ }
 
+ //function convert2(){
+  //convertedAmount = amount.value* rateB/rateA;
+  //convertedAmount = convertedAmount.toFixed(2)
+ // formatedAmount = formatCurrency(to.value,convertedAmount)
 
-
-
-
+// }

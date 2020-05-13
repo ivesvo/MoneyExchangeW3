@@ -5,50 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@500&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
-  <div class="container">
     <div class="header">
-        <h1 class="text-center"> Money Exchanging</h1>
+        <h1 class="text-center">Currency Converting</h1>
     </div>
-    <div class="content"> 
-        <p>Amount</p>
-        <input type="number" id="amountInput"/>
-        <label for="exchangeFrom">From:</label>
+    <div class=container>
+        <div class="row">
+            <div class="col-6">
+                <label>Amount</label>
+            </div>
+            <div class="col-2">
+                <label for="fromList">From</label>
+            </div>
+            <div class="col-2">
+                <label for="toList">To</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <input type="number" min ="0" id="amountInput"/>
+                
+            </div>
+            <div class="col-2">
+                <select id="fromList">
+                    <option value="VND">VND</option>
+                    <option value="USD">USD</option>
+                    <option value="GBP">GBP</option>
+                    <option value="KRW">KRW</option>
+
+                </select>
+            </div>
+            <div class="col-2">
+                <select id="toList">
+                    <option value="VND">VND</option>
+                    <option value="USD">USD</option>
+                    <option value="GBP">GBP</option>
+                    <option value="KRW">KRW</option>
+
+                </select>
+            </div>
+            <div class="col-2">
+                <button class="button" id="convertButton" onclick="convert2()">Convert</button>
+            
+            
+            </div>
+        </div>
+        <div class="result1" id="resultText">
+            You have
+
+        </div>
         
-        <select id="fromList">
-           <option value="VND">VND</option>
-           <option value="USD">USD</option>
-           <option value="GBP">GBP</option>
-           <option value="KRW">KRW</option>
-         </select>
-    
-    
-         <label for="exchangeTo">To:</label>
-    
-        <select id="toList">
-            <option value="VND">VND</option>
-            <option value="USD">USD</option>
-            <option value="GBP">GBP</option>
-            <option value="KRW">KRW</option>
-         </select>
-        <button class="button" id="convertButton" onclick="convert()">Convert For Me</button>
-        </br>
-        <div id="resultArea"></div>
-    
-
-    </div>
-
-    <div class="header">
-        <h6 class="text-center">Hey, only [̲̅$̲̅(̲̅ )̲̅$̲̅] for now. Come back sometimes for more currencies.</h6>
-    </div>
-   
-
         
-      
-  </div>
-  
+            
+        </div>
+        
+    </div>
 
 
 
