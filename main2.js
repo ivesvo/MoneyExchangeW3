@@ -78,7 +78,7 @@ const currencyRatio = {
     VND: 19.47
   },
   GBP:{
-    USB: 1.22673,
+    USD: 1.22673,
     KRW: 1503.47,
     GBP: 1,
     VND: 28615.8
