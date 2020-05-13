@@ -48,7 +48,7 @@ function convert (){
      formatedAmount = formatCurrency(to.value,convertedAmount)
    
    } else {
-     result.innterHTML = `Choose different converting currency`
+     result.innerHTML = `Choose different converting currency`
      return; 
    }
    result.innerHTML = `You have ${formatedAmount}`
