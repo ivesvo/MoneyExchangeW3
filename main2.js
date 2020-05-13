@@ -7,15 +7,6 @@ let amount = document.getElementById('amountInput')
 let result = document.getElementById('resultText');
 let convertedAmount = 0;
 let formatedAmount = ' '
-let rateA = 0;
-let rateB = 0;
-
-//const ratePerUSD = {
- // "USD": 1,
- // "VND": 23333.5,
- // "GBP": 0.80870,
- // "KRW": 1224.11
-//}
 
 
 convertButton.addEventListener("click",convert);
@@ -57,24 +48,11 @@ function convert (){
      formatedAmount = formatCurrency(to.value,convertedAmount)
    
    } else {
-     result.innerHTML = `Choose different converting currency`
+     result.innterHTML = `Choose different converting currency`
      return; 
    }
    result.innerHTML = `You have ${formatedAmount}`
  }
  
 
- //function getRatePerUSD() {
- // for (let [key, value] of Object.entries(ratePerUSD)) {
- //     console.log(key, value)
- //     if (from === key) {rateA = value;}
- //     if (to === key) {rateB = value;}
-  
- }
-
- //function convert2(){
-  //convertedAmount = amount.value* rateB/rateA;
-  //convertedAmount = convertedAmount.toFixed(2)
- // formatedAmount = formatCurrency(to.value,convertedAmount)
-
-// }
+ 
